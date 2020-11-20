@@ -4,43 +4,26 @@ Info: Il limite massimo dipende da quanto grandi decidiamo che siano le struttur
 Impareremo che è possibile scrivere programmi che non hanno questo tipo di limite */
 
 #include <iostream>
+#define N 10  //inizializzazione, scritta così poi posso usarla anche in altre funzioni
+//scritta così N non è una variabile, per avere variabile dovrei scrivere int N dentro al main
 using namespace std;
 int main()
 {
-int a, b, c, d, e, f, g, h, i, l;
-int somma;
-cout<<"inserire numeri"<<endl;
-cin>>a,b,c,d,e,f,g,h,i,l;
-somma = a+b+c+d+e+f+g+h+i+l;
- if (a==0) {
- cout<<0<<endl; }
-if (b==0) {
-    cout<<a<<endl; }
-if (c==0) {
-    cout<<a+b<<endl;
+int numbers[N];
+int count=0;
+
+cout<<"insert "<<N<<" numbers: "<<endl;
+for (int i=0; i<=N; i++) {
+    cin>>numbers [i];
+    if (numbers [i]==0) 
+        break;
+    count++;
 }
-if  (d==0) {
-    cout<<a+b+c<<endl;
+int sum = numbers[0];
+for (int i=1; i<=count; i++) {
+    sum+=numbers[i];
 }
-if (e==0) {
-    cout<<a+b+c+d<<endl;
-}
-if (f==0) {
-    cout<<a+b+c+d+e<<endl;
-}
-if (g==0) {
-    cout<<a+b+c+d+e+f<<endl;
-}
-if (h==0) {
-    cout<<a+b+c+d+e+f+g<<endl;
-}
-if (i==0) {
-    cout<<a+b+c+d+e+f+g+h<<endl;
-}
-if (l==0) {
-    cout<<a+b+c+d+e+f+g+h+i<<endl;
-}
-cout<<somma<<endl;
+cout<<"sum= "<<sum<<endl;
 
 return 0;
 }
