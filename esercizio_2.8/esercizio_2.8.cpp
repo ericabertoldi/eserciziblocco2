@@ -6,10 +6,11 @@ using namespace std;
 int main()
 {
     int num[N];
-    cout<<"inserire 10 numeri"<<endl;
-    
-    for (int i=0; i<N; i++){
-        cin>>num[i];
+    cout << "inserire 10 numeri" << endl;
+
+    //per fare cin dell'array bisogna usare ciclo for
+    for (int i = 0; i < N; i++) {
+        cin >> num[i];
     }
 
     int max = num[0]; //poniamo il massimo uguale al primo elemento
