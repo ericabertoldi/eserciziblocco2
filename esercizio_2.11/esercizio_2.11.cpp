@@ -13,6 +13,11 @@ int main()
     int num[N];
     int fact[N];
 
+    //ciclo for per inizializzare l'array num
+    for (int i=1; i<N; i++) {
+        num[i]++;
+    }
+
     //ciclo for per vedere quali N sono fattori
     for (int i = 1; i < N; i++) {
         if (n % num[i] == 0) {
