@@ -17,17 +17,26 @@ int main()
     cout << "guess random number" << endl;
     cin >> n;
 
-    if (n == rd) {
-        cout << "correct!" << endl;
-    }
-    else if (n != rd) {
-        while (n < rd) {
+    //caso in cui n diverso da rd
+    while (n != rd) {
+        
+        //n minore di rd
+        if (n < rd) {
             cout << "try with a larger number" << endl;
             cin >> n;
         }
-        while (n > rd) {
+
+        //n maggiore di rd
+        if (n > rd) {
             cout << "try with a smaller number" << endl;
             cin >> n;
         }
     }
+
+    //se n uguale a rd
+    if (n == rd) {
+        cout << "correct!" << endl;
+    }
+
+    return 0;
 }
