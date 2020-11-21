@@ -3,38 +3,32 @@ numero perfetto essendo che 1 + 2 + 3 = 6. Scrivere una funzione che determina s
 Usarla per ricavare tutti i numeri perfetti da 1 a 1000. */
 
 #include <iostream>
-#define N 1000
 using namespace std;
-int main()
+
+int perf(int n)
 {
-    int n;
-    cout << "inserire numero" << endl;
-    cin >> n;
-    int num[N];
-    int fact[N];
-
-    //ciclo for per inizializzare l'array num
-    for (int i=1; i<N; i++) {
-        num[i]++;
-    }
-
-    //ciclo for per vedere quali N sono fattori
-    for (int i = 1; i < N; i++) {
-        if (n % num[i] == 0) {
-            fact[i] = num[i];
+    int fact[500];
+    int count = 0;
+    for (int i = 1; i <= 500; i++) {
+        if (n % i == 0) {
+            fact[i] = i;
         }
+        count++;
     }
-    int sum = fact [0];
-
-    //ciclo for per calcolare la somma dei fattori
-    for (int i = 1; i < N; i++) {
+    int sum = fact[0];
+    for (int i = 1; i <= count; i++) {
         sum += fact[i];
     }
-
-    if (n==sum) {
+    if (n == sum) {
         cout << n << " numero perfetto" << endl;
-    } else
-        cout << n << " non numero perfetto" << endl;
+    }
+    return n;
+}
+int main()
+{
+    for (int j = 1; j <= 1000; j++) {
+        cout << "numeri perfetti da 1 a 1000 " << perf(j) << endl;
+    }
 
     return 0;
 }
