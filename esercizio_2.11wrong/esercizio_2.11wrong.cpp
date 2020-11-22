@@ -4,25 +4,29 @@ Usarla per ricavare tutti i numeri perfetti da 1 a 1000. */
 
 #include <iostream>
 using namespace std;
+
 int perf(int n)
 {
-    int fact = 0;
-    for (int i = 1; i < n; i++) {
+    int fact[500] = {};
+    int count = 0;
+    for (int i = 1; i <= 500; i++) {
         if (n % i == 0) {
-            fact += i;
+            fact[i] = i;
         }
+        count++;
     }
-    if (n == fact) {
+    int sum = fact[0];
+    for (int i = 1; i <= count; i++) {
+        sum += fact[i];
+    }
+    if (n == sum) {
         return n;
     }
 }
-
 int main()
 {
-    int N = 1000;
-    for (int j = 1; j <= N; j++) {
-        cout << "numeri perfetti da 1 a 1000 " << endl;
-        cout << perf(j) << endl;
+    for (int j = 1; j <= 1000; j++) {
+        cout << "numeri perfetti da 1 a 1000 " << perf(j) << endl;
     }
 
     return 0;
