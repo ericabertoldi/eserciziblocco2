@@ -4,7 +4,7 @@ Usarla per ricavare tutti i numeri perfetti da 1 a 1000. */
 
 #include <iostream>
 using namespace std;
-int perf(int n)
+bool perf(int n)  //bool perchè ho bisogno che la f mi ritorni true/false
 {
     int fact = 0;
     for (int i = 1; i < n; i++) {
@@ -13,16 +13,20 @@ int perf(int n)
         }
     }
     if (n == fact) {
-        return n;
+        return true;
     }
+    else return false;
 }
 
 int main()
 {
     int N = 1000;
+    cout << "numeri perfetti da 1 a 1000 " << endl;
     for (int j = 1; j <= N; j++) {
-        cout << "numeri perfetti da 1 a 1000 " << endl;
-        cout << perf(j) << endl;
+        if (perf(j)) {
+            cout<<j<<endl;
+        }
+
     }
 
     return 0;
