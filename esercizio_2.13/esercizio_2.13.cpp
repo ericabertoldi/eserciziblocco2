@@ -8,22 +8,37 @@ quando quindi tutti i numeri sono in ordine. */
 using namespace std;
 #define N 10
 int main()
+
 {
     int numbers[N];
+    int out[N];
     cout << "insert " << N << " different numbers" << endl;
 
     //ciclo for per inserire numeri
     for (int i = 0; i < N; i++) {
         cin >> numbers[i];
     }
+    
+    // Copying input array in result
+    for (int i = 0; i < N; i++) {
+        out[i] = numbers[i];
+    }
+
 
     //ciclo for per mettere in ordine numeri
-    for (int i = 0; i < N; i++) {
-        if (numbers[i] > numbers[i + 1]) {
-            numbers[i] = numbers[i + 1];
-            numbers[i + 1] = numbers[i];
-            cout << numbers[i] << endl;
+
+    for (int i = 0; i < N-1; i++) {
+        while (out[i] != out [i+1]) {
+
+        if (out[i] > out[i + 1]) {
+            int temp = out[i];
+            out[i] = out[i + 1];
+            out[i + 1] = temp;
         }
+        else out [i] = out [i];
+        out [i+1] = out [i+1];
+        }
+        cout<<out[i]<<endl;
     }
 
     return 0;
