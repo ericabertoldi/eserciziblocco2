@@ -7,6 +7,9 @@ quando quindi tutti i numeri sono in ordine. */
 #include <iostream>
 using namespace std;
 #define N 10
+
+void swap(int a, int b);
+
 int main()
 
 {
@@ -18,28 +21,33 @@ int main()
     for (int i = 0; i < N; i++) {
         cin >> numbers[i];
     }
-    
-    // Copying input array in result
-    for (int i = 0; i < N; i++) {
-        out[i] = numbers[i];
+
+
+    int temp, min;
+    for (int i = 0; i < N - 1; i++) {
+        int min = i;
+        for (int j = i + 1; j < N; j++)
+            if ( numbers[j] < numbers[min]){
+                min = j;
+                swap (numbers[min], numbers [j]);
+            }
+        temp = numbers[min];
+        numbers[min] = numbers[i];
+        numbers[i] = temp;
     }
 
+    cout << "New array : " << endl;
 
-    //ciclo for per mettere in ordine numeri
-
-    for (int i = 0; i < N-1; i++) {
-        while (out[i] != out [i+1]) {
-
-        if (out[i] > out[i + 1]) {
-            int temp = out[i];
-            out[i] = out[i + 1];
-            out[i + 1] = temp;
-        }
-        else out [i] = out [i];
-        out [i+1] = out [i+1];
-        }
-        cout<<out[i]<<endl;
+    for (int i = 1; i <= N; i++) {
+        cout << numbers[i] << " ";
     }
-
     return 0;
+}
+
+void swap(int a, int b)
+{
+    int c;
+    c = a;
+    a = b;
+    b = c;
 }
